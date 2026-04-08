@@ -1,0 +1,3 @@
+/home/ga/projects/eeg_realtime_pipeline/build/CMakeFiles/rebuild_cache.dir
+/home/ga/projects/eeg_realtime_pipeline/build/CMakeFiles/edit_cache.dir
+/home/ga/projects/eeg_realtime_pipeline/build/CMakeFiles/eeg_pipeline.dir
