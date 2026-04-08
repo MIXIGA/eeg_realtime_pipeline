@@ -1,0 +1,498 @@
+​
+<pre>base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ dfg -h
+
+Command &apos;dfg&apos; not found, did you mean:
+
+  command &apos;bfg&apos; from snap bfg-repo-cleaner (1.14.0)
+  command &apos;df&apos; from deb coreutils (8.30-3ubuntu2)
+  command &apos;dig&apos; from deb bind9-dnsutils (1:9.16.1-0ubuntu2)
+
+See &apos;snap info &lt;snapname&gt;&apos; for additional versions.
+
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ df -h
+文件系统        容量  已用  可用 已用% 挂载点
+udev             16G     0   16G    0% /dev
+tmpfs           3.2G  2.0M  3.2G    1% /run
+/dev/sda5        31G   27G  3.2G   90% /
+tmpfs            16G   11M   16G    1% /dev/shm
+tmpfs           5.0M  4.0K  5.0M    1% /run/lock
+tmpfs            16G     0   16G    0% /sys/fs/cgroup
+/dev/loop1      219M  219M     0  100% /snap/gnome-3-34-1804/66
+/dev/loop2       65M   65M     0  100% /snap/gtk-common-themes/1514
+/dev/loop0       56M   56M     0  100% /snap/core18/1944
+/dev/loop4       52M   52M     0  100% /snap/snap-store/518
+/dev/sda1       511M  4.0K  511M    1% /boot/efi
+tmpfs           3.2G  128K  3.2G    1% /run/user/1000
+/dev/loop5       49M   49M     0  100% /snap/snapd/26382
+/dev/loop6      128K  128K     0  100% /snap/bare/5
+/dev/loop7       92M   92M     0  100% /snap/gtk-common-themes/1535
+/dev/loop8      219M  219M     0  100% /snap/gnome-3-34-1804/93
+/dev/loop9       74M   74M     0  100% /snap/core22/2411
+/dev/loop10      13M   13M     0  100% /snap/snap-store/1216
+/dev/loop3       56M   56M     0  100% /snap/core18/2999
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo du -sh /var/lib/snapd/snaps/
+[sudo] ga 的密码： 
+891M	/var/lib/snapd/snaps/
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo snap remove --purge $(snap list --all | awk &apos;/disabled/print $1,$3}&apos;)
+awk: line 1: syntax error at or near print
+awk: line 1: extra &apos;}&apos;
+error: the required argument `&lt;snap&gt; (at least 1 argument)` was not provided
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt clean
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt autoremove -y
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 1 个软件包未被升级。
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo journalctl --vacuum-size=100M
+Vacuuming done, freed 0B of archived journals from /var/log/journal.
+Vacuuming done, freed 0B of archived journals from /var/log/journal/9d431035d0f145d6becec112ff63c9b2.
+Vacuuming done, freed 0B of archived journals from /run/log/journal.
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ rm -rf ~/.cache/*
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ conda clean -a -y
+Will remove 18 (136.7 MB) tarball(s).
+Will remove 1 index cache(s).
+Will remove 19 (537.9 MB) package(s).
+There are no tempfile(s) to remove.
+There are no logfile(s) to remove.
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ df -h
+文件系统        容量  已用  可用 已用% 挂载点
+udev             16G     0   16G    0% /dev
+tmpfs           3.2G  1.9M  3.2G    1% /run
+/dev/sda5        31G   22G  8.1G   73% /
+tmpfs            16G   11M   16G    1% /dev/shm
+tmpfs           5.0M  4.0K  5.0M    1% /run/lock
+tmpfs            16G     0   16G    0% /sys/fs/cgroup
+/dev/loop1      219M  219M     0  100% /snap/gnome-3-34-1804/66
+/dev/loop2       65M   65M     0  100% /snap/gtk-common-themes/1514
+/dev/loop0       56M   56M     0  100% /snap/core18/1944
+/dev/loop4       52M   52M     0  100% /snap/snap-store/518
+/dev/sda1       511M  4.0K  511M    1% /boot/efi
+tmpfs           3.2G  128K  3.2G    1% /run/user/1000
+/dev/loop5       49M   49M     0  100% /snap/snapd/26382
+/dev/loop6      128K  128K     0  100% /snap/bare/5
+/dev/loop7       92M   92M     0  100% /snap/gtk-common-themes/1535
+/dev/loop8      219M  219M     0  100% /snap/gnome-3-34-1804/93
+/dev/loop9       74M   74M     0  100% /snap/core22/2411
+/dev/loop10      13M   13M     0  100% /snap/snap-store/1216
+/dev/loop3       56M   56M     0  100% /snap/core18/2999
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt autoremove -y
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 1 个软件包未被升级。
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt clean
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ rm -rf ~/.cache/*
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ conda clean -a -y
+There are no unused tarball(s) to remove.
+There are no index cache(s) to remove.
+There are no unused package(s) to remove.
+There are no tempfile(s) to remove.
+There are no logfile(s) to remove.
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ df -h
+文件系统        容量  已用  可用 已用% 挂载点
+udev             16G     0   16G    0% /dev
+tmpfs           3.2G  1.9M  3.2G    1% /run
+/dev/sda5        31G   22G  8.1G   73% /
+tmpfs            16G   11M   16G    1% /dev/shm
+tmpfs           5.0M  4.0K  5.0M    1% /run/lock
+tmpfs            16G     0   16G    0% /sys/fs/cgroup
+/dev/loop1      219M  219M     0  100% /snap/gnome-3-34-1804/66
+/dev/loop2       65M   65M     0  100% /snap/gtk-common-themes/1514
+/dev/loop0       56M   56M     0  100% /snap/core18/1944
+/dev/loop4       52M   52M     0  100% /snap/snap-store/518
+/dev/sda1       511M  4.0K  511M    1% /boot/efi
+tmpfs           3.2G  128K  3.2G    1% /run/user/1000
+/dev/loop5       49M   49M     0  100% /snap/snapd/26382
+/dev/loop6      128K  128K     0  100% /snap/bare/5
+/dev/loop7       92M   92M     0  100% /snap/gtk-common-themes/1535
+/dev/loop8      219M  219M     0  100% /snap/gnome-3-34-1804/93
+/dev/loop9       74M   74M     0  100% /snap/core22/2411
+/dev/loop10      13M   13M     0  100% /snap/snap-store/1216
+/dev/loop3       56M   56M     0  100% /snap/core18/2999
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt update
+[sudo] ga 的密码： 
+获取:1 https://packages.microsoft.com/repos/code stable InRelease [3,590 B]
+获取:2 https://packages.microsoft.com/repos/code stable/main amd64 Packages [24.6 kB]
+命中:3 http://archive.ubuntu.com/ubuntu focal InRelease<font color="#C4A000">                       </font>
+已下载 28.1 kB，耗时 1秒 (32.8 kB/s)<font color="#C4A000">               </font>
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+有 1 个软件包可以升级。请执行 ‘apt list --upgradable’ 来查看它们。
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt install -y build-essential cmake git libpthread-dev
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+<font color="#CC0000"><b>E: </b></font>无法定位软件包 libpthread-dev
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt install -y build-essential cmake git libkissfft-dev
+[sudo] ga 的密码： 
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+<font color="#CC0000"><b>E: </b></font>无法定位软件包 libkissfft-dev
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt install -y build-essential cmake git
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+有一些软件包无法被安装。如果您用的是 unstable 发行版，这也许是
+因为系统无法达到您要求的状态造成的。该版本中可能会有一些您需要的软件
+包尚未被创建或是它们已被从新到(Incoming)目录移出。
+下列信息可能会对解决问题有所帮助：
+
+下列软件包有未满足的依赖关系：
+ build-essential : 依赖: libc6-dev 但是它将不会被安装 或
+                           libc-dev
+                   依赖: gcc (&gt;= 4:9.2) 但是它将不会被安装
+                   依赖: g++ (&gt;= 4:9.2) 但是它将不会被安装
+<font color="#CC0000"><b>E: </b></font>无法修正错误，因为您要求某些软件包保持现状，就是它们破坏了软件包间的依赖关系。
+(base) <font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ conda deactivate
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt install -y build-essential cmake git
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+有一些软件包无法被安装。如果您用的是 unstable 发行版，这也许是
+因为系统无法达到您要求的状态造成的。该版本中可能会有一些您需要的软件
+包尚未被创建或是它们已被从新到(Incoming)目录移出。
+下列信息可能会对解决问题有所帮助：
+
+下列软件包有未满足的依赖关系：
+ build-essential : 依赖: libc6-dev 但是它将不会被安装 或
+                           libc-dev
+                   依赖: gcc (&gt;= 4:9.2) 但是它将不会被安装
+                   依赖: g++ (&gt;= 4:9.2) 但是它将不会被安装
+<font color="#CC0000"><b>E: </b></font>无法修正错误，因为您要求某些软件包保持现状，就是它们破坏了软件包间的依赖关系。
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt --fix-broken install -y
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 1 个软件包未被升级。
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo dpkg --configure -a
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt --fix-broken install -y
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 1 个软件包未被升级。
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo tee /etc/apt/sources.list &lt;&lt;EOF
+&gt; deb http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse
+&gt; deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse
+&gt; deb http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse
+&gt; deb http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse
+&gt; EOF
+deb http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt clean
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt update --fix-missing
+命中:1 https://packages.microsoft.com/repos/code stable InRelease             
+命中:2 http://archive.ubuntu.com/ubuntu focal InRelease<font color="#C4A000">                       </font>
+获取:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [128 kB]
+获取:4 http://archive.ubuntu.com/ubuntu focal-security InRelease [128 kB]
+获取:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease [128 kB]
+....省略过程
+已下载 61.0 MB，耗时 19秒 (3,280 kB/s)                                        
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+有 639 个软件包可以升级。请执行 ‘apt list --upgradable’ 来查看它们。
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt install -y libc6-dev
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+将会同时安装下列软件：
+  libc-dev-bin libc6 libc6-dbg libcrypt-dev linux-libc-dev manpages-dev
+建议安装：
+  glibc-doc
+下列【新】软件包将被安装：
+  libc-dev-bin libc6-dev libcrypt-dev linux-libc-dev manpages-dev
+下列软件包将被升级：
+  libc6 libc6-dbg
+升级了 2 个软件包，新安装了 5 个软件包，要卸载 0 个软件包，有 637 个软件包未被升级。
+需要下载 29.0 MB 的归档。
+解压缩后将会空出 15.6 MB 的空间。
+获取:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc6-dbg amd64 2.31-0ubuntu9.18 [20.2 MB]
+获取:2 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc6 amd64 2.31-0ubuntu9.18 [2,720 kB]
+获取:3 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc-dev-bin amd64 2.31-0ubuntu9.18 [71.7 kB]
+获取:4 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 linux-libc-dev amd64 5.4.0-216.236 [1,111 kB]
+获取:5 http://archive.ubuntu.com/ubuntu focal/main amd64 libcrypt-dev amd64 1:4.4.10-10ubuntu4 [104 kB]
+获取:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc6-dev amd64 2.31-0ubuntu9.18 [2,520 kB]
+获取:7 http://archive.ubuntu.com/ubuntu focal/main amd64 manpages-dev all 5.05-1 [2,266 kB]
+已下载 29.0 MB，耗时 27秒 (1,085 kB/s)                                        
+正在预设定软件包 ...
+(正在读取数据库 ... 系统当前共安装有 158057 个文件和目录。)
+准备解压 .../libc6-dbg_2.31-0ubuntu9.18_amd64.deb  ...
+正在解压 libc6-dbg:amd64 (2.31-0ubuntu9.18) 并覆盖 (2.31-0ubuntu9.2) ...
+准备解压 .../libc6_2.31-0ubuntu9.18_amd64.deb  ...
+正在解压 libc6:amd64 (2.31-0ubuntu9.18) 并覆盖 (2.31-0ubuntu9.2) ...
+正在设置 libc6:amd64 (2.31-0ubuntu9.18) ...
+
+省略过程
+
+..
+正在设置 g++ (4:9.3.0-1ubuntu2) ...
+update-alternatives: 使用 /usr/bin/g++ 来在自动模式中提供 /usr/bin/c++ (c++)
+正在处理用于 man-db (2.9.1-1) 的触发器 ...
+正在处理用于 libc-bin (2.31-0ubuntu9.2) 的触发器 ...
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ dpkg -l | grep libc6-dev
+ii  <font color="#CC0000"><b>libc6-dev</b></font>:amd64                            2.31-0ubuntu9.18                    amd64        GNU C Library: Development Libraries and Header Files
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ gcc --version
+gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ sudo apt install -y build-essential cmake git
+[sudo] ga 的密码： 
+对不起，请重试。
+[sudo] ga 的密码： 
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+将会同时安装下列软件：
+  cmake-data dpkg-dev fakeroot git-man libalgorithm-diff-perl
+  libalgorithm-diff-xs-perl libalgorithm-merge-perl libdpkg-perl
+  liberror-perl libfakeroot libjsoncpp1 librhash0 make
+建议安装：
+  cmake-doc ninja-build debian-keyring git-daemon-run | git-daemon-sysvinit
+  git-doc git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn
+  bzr make-doc
+下列【新】软件包将被安装：
+  build-essential cmake cmake-data dpkg-dev fakeroot git git-man
+  libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl
+  liberror-perl libfakeroot libjsoncpp1 librhash0 make
+下列软件包将被升级：
+  libdpkg-perl
+升级了 1 个软件包，新安装了 15 个软件包，要卸载 0 个软件包，有 629 个软件包未被升级。
+需要下载 12.2 MB 的归档。
+解压缩后会消耗 70.3 MB 的额外空间。
+获取:1 http://archive.ubuntu.com/ubuntu focal/main amd64 make amd64 4.2.1-1.2 [162 kB]
+获取:2 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdpkg-perl all 1.19.7ubuntu3.2 [231 kB]
+获取:3 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 dpkg-dev all 1.19.7ubuntu3.2 [679 kB]
+省略过程
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ mkdir -p ~/projects/eeg_realtime_pipeline/third_party
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~</b></font>$ cd ~/projects/eeg_realtime_pipeline/third_party
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party</b></font>$ git clone https://github.com/mborgerding/kissfft.git
+正克隆到 &apos;kissfft&apos;...
+fatal: 无法访问 &apos;https://github.com/mborgerding/kissfft.git/&apos;：GnuTLS recv error (-54): Error in the pull function.
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party</b></font>$ git clone https://github.com/mborgerding/kissfft.git
+正克隆到 &apos;kissfft&apos;...
+remote: Enumerating objects: 1792, done.
+remote: Counting objects: 100% (390/390), done.
+remote: Compressing objects: 100% (170/170), done.
+接收对象中: 100% (1792/1792), 917.10 KiB | 52.00 KiB/s, 完成.
+remote: Total 1792 (delta 329), reused 221 (delta 218), pack-reused 1402 (from 2)
+处理 delta 中: 100% (1038/1038), 完成.
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party</b></font>$ cd kissfft
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft</b></font>$ mkdir build &amp;&amp; cd build
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:~/projects/eeg_realtime_pipeline/third_party/kissfft/buil<font color="#3465A4"><b>d</b></font>$ cmake -DBUILD_SHARED_LIBS=OFF ..
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Building KissFFT with datatype: float
+-- Building shared library
+-- PKGINCLUDEDIR is include/kissfft
+-- Found PkgConfig: /usr/bin/pkg-config (found version &quot;0.29.1&quot;) 
+-- Checking for module &apos;libpng&apos;
+--   No package &apos;libpng&apos; found
+CMake Error at /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:463 (message):
+  A required package was not found
+Call Stack (most recent call first):
+  /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:643 (_pkg_check_modules_internal)
+  tools/CMakeLists.txt:18 (pkg_check_modules)
+
+
+-- Configuring incomplete, errors occurred!
+See also &quot;/home/ga/projects/eeg_realtime_pipeline/third_party/kissfft/build/CMakeFiles/CMakeOutput.log&quot;.
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:~/projects/eeg_realtime_pipeline/third_party/kissfft/buil<font color="#3465A4"><b>d</b></font>$ cmake -DBUILD_SHARED_LIBS=OFF -DBUILD_TOOLS=OFF ..
+-- Building KissFFT with datatype: float
+-- Building shared library
+-- PKGINCLUDEDIR is include/kissfft
+-- Checking for module &apos;libpng&apos;
+--   No package &apos;libpng&apos; found
+CMake Error at /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:463 (message):
+  A required package was not found
+Call Stack (most recent call first):
+  /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:643 (_pkg_check_modules_internal)
+  tools/CMakeLists.txt:18 (pkg_check_modules)
+
+
+-- Configuring incomplete, errors occurred!
+See also &quot;/home/ga/projects/eeg_realtime_pipeline/third_party/kissfft/build/CMakeFiles/CMakeOutput.log&quot;.
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:~/projects/eeg_realtime_pipeline/third_party/kissfft/buil<font color="#3465A4"><b>d</b></font>$ cmake -DBUILD_SHARED_LIBS=OFF -DBUILD_TOOLS=OFF ..
+-- Building KissFFT with datatype: float
+-- Building shared library
+-- PKGINCLUDEDIR is include/kissfft
+-- Checking for module &apos;libpng&apos;
+--   No package &apos;libpng&apos; found
+CMake Error at /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:463 (message):
+  A required package was not found
+Call Stack (most recent call first):
+  /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:643 (_pkg_check_modules_internal)
+  tools/CMakeLists.txt:18 (pkg_check_modules)
+
+
+-- Configuring incomplete, errors occurred!
+See also &quot;/home/ga/projects/eeg_realtime_pipeline/third_party/kissfft/build/CMakeFiles/CMakeOutput.log&quot;.
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:~/projects/eeg_realtime_pipeline/third_party/kissfft/buil<font color="#3465A4"><b>d</b></font>$ cmake -DBUILD_SHARED_LIBS=OFF -DBUILD_TOOLS=OFF ..
+-- Building KissFFT with datatype: float
+-- Building shared library
+-- PKGINCLUDEDIR is include/kissfft
+-- Checking for module &apos;libpng&apos;
+--   No package &apos;libpng&apos; found
+CMake Error at /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:463 (message):
+  A required package was not found
+Call Stack (most recent call first):
+  /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:643 (_pkg_check_modules_internal)
+  tools/CMakeLists.txt:18 (pkg_check_modules)
+
+
+-- Configuring incomplete, errors occurred!
+See also &quot;/home/ga/projects/eeg_realtime_pipeline/third_party/kissfft/build/CMakeFiles/CMakeOutput.log&quot;.
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:~/projects/eeg_realtime_pipeline/third_party/kissfft/buil<font color="#3465A4"><b>d</b></font>$ cmake -DBUILD_SHARED_LIBS=OFF -DBUILD_TOOLS=OFF ..
+-- Building KissFFT with datatype: float
+-- Building shared library
+-- PKGINCLUDEDIR is include/kissfft
+-- Checking for module &apos;libpng&apos;
+--   No package &apos;libpng&apos; found
+CMake Error at /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:463 (message):
+  A required package was not found
+Call Stack (most recent call first):
+  /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:643 (_pkg_check_modules_internal)
+  tools/CMakeLists.txt:18 (pkg_check_modules)
+
+
+-- Configuring incomplete, errors occurred!
+See also &quot;/home/ga/projects/eeg_realtime_pipeline/third_party/kissfft/build/CMakeFiles/CMakeOutput.log&quot;.
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft/build</b></font>$ cd ..
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft</b></font>$ rm -rf tools
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft</b></font>$ cd build
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:~/projects/eeg_realtime_pipeline/third_party/kissfft/buil<font color="#3465A4"><b>d</b></font>$ cmake -DBUILD_SHARED_LIBS=OFF ..
+-- Building KissFFT with datatype: float
+-- Building shared library
+-- PKGINCLUDEDIR is include/kissfft
+CMake Error at CMakeLists.txt:359 (add_subdirectory):
+  add_subdirectory given source &quot;tools&quot; which is not an existing directory.
+
+
+-- Checking for module &apos;fftw3&apos;
+--   No package &apos;fftw3&apos; found
+CMake Error at /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:463 (message):
+  A required package was not found
+Call Stack (most recent call first):
+  /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:643 (_pkg_check_modules_internal)
+  test/CMakeLists.txt:32 (pkg_check_modules)
+
+
+-- Configuring incomplete, errors occurred!
+See also &quot;/home/ga/projects/eeg_realtime_pipeline/third_party/kissfft/build/CMakeFiles/CMakeOutput.log&quot;.
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:~/projects/eeg_realtime_pipeline/third_party/kissfft/buil<font color="#3465A4"><b>d</b></font>$ cmake -DBUILD_SHARED_LIBS=OFF ..
+-- Building KissFFT with datatype: float
+-- Building shared library
+-- PKGINCLUDEDIR is include/kissfft
+CMake Error at CMakeLists.txt:359 (add_subdirectory):
+  add_subdirectory given source &quot;tools&quot; which is not an existing directory.
+
+
+-- Checking for module &apos;fftw3&apos;
+--   No package &apos;fftw3&apos; found
+CMake Error at /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:463 (message):
+  A required package was not found
+Call Stack (most recent call first):
+  /usr/share/cmake-3.16/Modules/FindPkgConfig.cmake:643 (_pkg_check_modules_internal)
+  test/CMakeLists.txt:32 (pkg_check_modules)
+
+
+-- Configuring incomplete, errors occurred!
+See also &quot;/home/ga/projects/eeg_realtime_pipeline/third_party/kissfft/build/CMakeFiles/CMakeOutput.log&quot;.
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:~/projects/eeg_realtime_pipeline/third_party/kissfft/buil<font color="#3465A4"><b>d</b></font>$ cd ~/projects/eeg_realtime_pipeline/third_party
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party</b></font>$ mkdir -p kissfft
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party</b></font>$ cd kissfft
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft</b></font>$ wget https://raw.githubusercontent.com/mborgerding/kissfft/master/kiss_fft.h
+--2026-04-03 16:59:38--  https://raw.githubusercontent.com/mborgerding/kissfft/master/kiss_fft.h
+正在解析主机 raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.111.133, 185.199.108.133, ...
+正在连接 raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度： 4330 (4.2K) [text/plain]
+正在保存至: “kiss_fft.h.1”
+
+kiss_fft.h.1        100%[==================&gt;]   4.23K  --.-KB/s    用时 0s    
+
+2026-04-03 16:59:40 (47.7 MB/s) - 已保存 “kiss_fft.h.1” [4330/4330])
+
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft</b></font>$ wget https://raw.githubusercontent.com/mborgerding/kissfft/master/kiss_fft.c
+--2026-04-03 16:59:50--  https://raw.githubusercontent.com/mborgerding/kissfft/master/kiss_fft.c
+正在解析主机 raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.109.133, 185.199.108.133, ...
+正在连接 raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... 已连接。
+
+无法建立 SSL 连接。
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft</b></font>$ 
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft</b></font>$ wget https://raw.githubusercontent.com/mborgerding/kissfft/master/kiss_fft.c
+--2026-04-03 17:00:21--  https://raw.githubusercontent.com/mborgerding/kissfft/master/kiss_fft.c
+正在解析主机 raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.110.133, 185.199.109.133, ...
+正在连接 raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度： 11970 (12K) [text/plain]
+正在保存至: “kiss_fft.c.1”
+
+kiss_fft.c.1        100%[==================&gt;]  11.69K  8.37KB/s    用时 1.4s  
+
+2026-04-03 17:00:24 (8.37 KB/s) - 已保存 “kiss_fft.c.1” [11970/11970])
+
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft</b></font>$ cd ~/projects/eeg_realtime_pipeline &amp;&amp; code .
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline</b></font>$ touch CMakeLists.txt
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline</b></font>$ cd ~/projects/eeg_realtime_pipeline/third_party/kissfft
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft</b></font>$ mv kiss_fft.h.1 kiss_fft.h
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft</b></font>$ mv kiss_fft.c.1 kiss_fft.c
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/third_party/kissfft</b></font>$ cd ~/projects/eeg_realtime_pipeline
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline</b></font>$ mkdir -p build &amp;&amp; cd build
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/build</b></font>$ cmake ..
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ga/projects/eeg_realtime_pipeline/build
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/build</b></font>$ make -j4
+<font color="#75507B"><b>Scanning dependencies of target eeg_pipeline</b></font>
+[ 60%] <font color="#4E9A06">Building CXX object CMakeFiles/eeg_pipeline.dir/src/consumer.cpp.o</font>
+[ 60%] <font color="#4E9A06">Building CXX object CMakeFiles/eeg_pipeline.dir/src/main.cpp.o</font>
+[ 60%] <font color="#4E9A06">Building CXX object CMakeFiles/eeg_pipeline.dir/src/producer.cpp.o</font>
+[ 80%] <font color="#4E9A06">Building C object CMakeFiles/eeg_pipeline.dir/third_party/kissfft/kiss_fft.c.o</font>
+[100%] <font color="#4E9A06"><b>Linking CXX executable eeg_pipeline</b></font>
+[100%] Built target eeg_pipeline
+<font color="#4E9A06"><b>ga@ga-virtual-machine</b></font>:<font color="#3465A4"><b>~/projects/eeg_realtime_pipeline/build</b></font>$ ./eeg_pipeline
+[Main] 嵌入式实时脑电数据处理框架启动成功！
+[Main] 采样率: 250Hz, 通道数: 8, 每包样本数: 25
+[Main] 按 Ctrl+C 退出程序
+[Consumer] 收到数据包，有效样本数: 25, 首帧时间戳: 678311040583 us
+[Consumer] 收到数据包，有效样本数: 25, 首帧时间戳: 678311141025 us
+[Consumer] 收到数据包，有效样本数: 25, 首帧时间戳: 678311241542 us
+[Consumer] 收到数据包，有效样本数: 25, 首帧时间戳: 678311341642 us
+[Consumer] 收到数据包，有效样本数: 25, 首帧时间戳: 678311442434 us
+
+[Consumer] 收到数据包，有效样本数: 25, 首帧时间戳: 678316359411 us
+
+​
