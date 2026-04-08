@@ -1,0 +1,16 @@
+​
+eeg_realtime_pipeline/
+├── include/          # 头文件文件夹
+│   ├── ring_buffer.hpp
+│   └── data_packet.hpp
+├── src/              # 源代码文件夹
+│   ├── main.cpp
+│   ├── producer.cpp
+│   └── consumer.cpp
+├── third_party/
+│   └── kissfft/      # 你已经下载好
+│       ├── kiss_fft.h
+│       └── kiss_fft.c
+└── CMakeLists.txt    # 直接在根目录新建
+
+​
